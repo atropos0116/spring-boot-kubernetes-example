@@ -63,6 +63,9 @@ kubectl delete -f service.yml
 * Blue/Green
 * Canary
 
+## 버전 v1 -> v2 변경
+./mvnw com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/$GOOGLE_CLOUD_PROJECT/spring-boot-example:v2
+
 ## Recreate Deployment
 
 $GOOGLE_CLOUD_PROJECT 는 Google Colud Platform 의 각자의 프로젝트 ID 확인
@@ -102,9 +105,6 @@ spec:
     app: spring-boot-example
   type: LoadBalancer
 ```
-
-### 버전 v1 -> v2 변경
-./mvnw com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/$GOOGLE_CLOUD_PROJECT/spring-boot-example:v2
 
 ### kube.yml 변경
 
@@ -149,9 +149,6 @@ spec:
 kubectl apply -f kube.yml
 
 ## RollingUpdate deployment
-
-### 버전 v1 -> v2 변경
-./mvnw com.google.cloud.tools:jib-maven-plugin:build -Dimage=gcr.io/$GOOGLE_CLOUD_PROJECT/spring-boot-example:v2
 
 ### kube.yml 변경
 
@@ -359,7 +356,7 @@ spec:
   type: LoadBalancer
 ```
 
-### 버전 v1 -> v2 변경
+### v2 적용
 kubectl apply -f kube-g-v2.yml
 kubectl apply -f kube-b-v2.yml
 kubectl delete -f kube-g-v2.yml
