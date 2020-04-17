@@ -360,3 +360,7 @@ spec:
 kubectl apply -f kube-g-v2.yml
 kubectl apply -f kube-b-v2.yml
 kubectl delete -f kube-g-v2.yml
+
+## Canary Deployment
+
+TODO..
